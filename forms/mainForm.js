@@ -1,131 +1,195 @@
-// const nodemailer = require("nodemailer");
-// require('dotenv').config()
-//
-//
-//
-// class mailSend{
-// constructor(){
-//   this.mail = process.env.MAIL_USER
-//   this.pass = process.env.MAIL_PASS
-// }
-//
-// sendForm(titleForm, contactInfo, bodyForm){
-// const yandex = nodemailer.createTransport({
-//   host: 'smrp.yandex.ru',
-//   port: 465,
-//   secure: true,
-//   auth: {
-//     user: this.mail,
-//     pass: this.pass
-//   },
-// });
-// }
-
-// const mailItSelf = {
-//   from:this.mail,
-//   to:this.mail,
-//   subject: 'Новая работа',
-//   text: `Опмисание:${titleForm} \n
-//   Контактная: ${contactInfo} \n
-//   Суть: ${bodyForm} \n`
-// };
-
-// sendForm.sendMail(mailItSelf,  (error, info) => {
-//             if (error) {
-//                 console.log('Ошибка:', error);
-//             } else {
-//                 console.log('Письмо отправлено:', info.messageId);
-//             }
-//         } );
-// }
-
-
-
 export const formTypeOne = `
-      <div class='form-1h-div'>
-         <h3> @Form 1326</h3>
+      <div class='form-header'>
+         <h3>@Form 1326</h3>
       </div>
-        <p>Заполните пожалуйста форму:</p>
+      <p class='form-subtitle'>Заполните пожалуйста форму:</p>
 
       <form action="http://localhost:3000/formSend" method="POST">
-      <div class='nird-form'style='width: 300px;'>	<input value='Введит любой контакт'  type='text'></div>
-       <div class='nird-form'style='width: 300px;height:100px;margin:10px 0px 10px 0px;'> <textarea value='Введите краткое описание' style='height:100px;border-radius:10px;' >
- ></textarea></div>
-        <input class='portfolio-menu-buttons' style='margin:0 0 0 0; position: relative;' type = 'submit'value='Принять'> </form>
-    
+        <div class='form-group'>
+          <input type='text' id='contact' name='contact' placeholder='Email, телефон или Telegram' required>
+          <span class='focus-line'></span>
+        </div>
+        
+        <div class='form-group'>
+          <textarea id='description' name='description' placeholder='Кратко опишите вашу задачу...' required></textarea>
+          <span class='focus-line'></span>
+        </div>
+        
+        <button type='submit' class='submit-btn'>
+          Отправить
+          <svg class='arrow-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'>
+            <path d='M5 12h14M12 5l7 7-7 7'/>
+          </svg>
+        </button>
+      </form>
+
     <style>
-    body{
-      display:flex;
-      justefy-content:center;
-      aling-items:center;
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+    .styleCodeModel {
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .form-1h-div{
-     background-color:gray;
-     padding-right:200px
+    .form-header{
+      background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+      padding: 18px 30px;
+      border-radius: 16px;
+      margin-bottom: 8px;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.35);
     }
 
-    .form-1h-div h3{
-     font-size: 40px;
-     color:green;
-    }
-    .styleCodeModel input{
-     margin-bottom:10px;
-     width:300px;
+    .form-header h3{
+      font-size: 36px;
+      font-weight: 700;
+      color: #0d1f14;
+      margin: 0;
+      letter-spacing: -1px;
     }
 
-    .styleCodeModel textarea{
-    background-color:gray;
-     margin-bottom:10px;
-     width:400px;
+    .form-subtitle{
+      font-size: 15px;
+      color: #888;
+      margin: 0 0 28px 0;
+      text-align: center;
     }
-  .styleCodeModel p{
-     font-size:20px;
-     color:green;
-    } 
+
     .styleCodeModel form{
-	display:flex;
-    flex-direction: column;
-    height: 300px;
-	justify-content:center;
-	align-items:center;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
 
-    .nird-form{
-	    display:flex;
-	    flex-shrink:0;
-	    position:relative;
-      background-color:grey;
-      border:1px solid darkgrey;
-      height:25px;
-      border-radius:20px;
-      box-shadow: 2px 2px 1px 3px #000 inset;
-      font-size:9px;
-      width:150px
+    .form-group{
+      position: relative;
+      width: 340px;
     }
 
-    .styleCodeModel input[type=text]{
-	border:none;
-      background-color:rgba(0,0,0,0);
-      margin: 0px 10px 0px 10px;
-      height:20px;
-      width:300px
+    .form-group label{
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #666;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      background: transparent;
+      padding: 0 5px;
     }
 
-    .styleCodeModel input[type=submit]{
-      display:block;
-      width:200px;
-      height:60px;
-      background-color:black;
-      color:white;
-      align-content: center;
-      margin-top:20px;
-     position:relative;
+    .form-group input,
+    .form-group textarea{
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: inherit;
+      color: #fff;
+      background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+      border: 1px solid #333;
+      border-radius: 12px;
+      outline: none;
+      resize: none;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
     }
 
-    .styleCodeModel input[type=submit]:hover{
-	background-color:grey;
-	color:blue;
+    .form-group input{
+      height: 48px;
+    }
+
+    .form-group textarea{
+      height: 110px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus{
+      border-color: #00ff88;
+      box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group input:focus ~ label,
+    .form-group input:not(:placeholder-shown) ~ label,
+    .form-group textarea:focus ~ label,
+    .form-group textarea:not(:placeholder-shown) ~ label{
+      top: -10px;
+      left: 12px;
+      font-size: 11px;
+      color: #00ff88;
+      background: #0d0d0d;
+      font-weight: 600;
+    }
+
+    .focus-line{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff88, transparent);
+      transition: all 0.4s ease;
+      transform: translateX(-50%);
+      border-radius: 0 0 12px 12px;
+    }
+
+    .form-group input:focus ~ .focus-line,
+    .form-group textarea:focus ~ .focus-line{
+      width: 100%;
+    }
+
+    .submit-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 240px;
+      height: 56px;
+      background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+      color: #0d1f14;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      margin: 8px auto 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .submit-btn:hover::before{
+      left: 100%;
+    }
+
+    .submit-btn:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 255, 136, 0.45);
+    }
+
+    .submit-btn:active{
+      transform: translateY(-1px);
+    }
+
+    .arrow-icon{
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .submit-btn:hover .arrow-icon{
+      transform: translateX(5px);
     }
     </style>
 `

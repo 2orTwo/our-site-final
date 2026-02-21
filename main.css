@@ -1,0 +1,623 @@
+@font-face {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Lobster-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Archivo";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Archivo-Italic-VariableFont.ttf");
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); */
+@font-face {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  /* Браузер сначала попробует найти шрифт локально */
+  src: local("Press Start 2P"),
+    /* Если не получилось, загрузит woff2 */ url("fonts/PressStart2P.woff");
+}
+
+@font-face {
+  font-family: "Doto";
+  /* Браузер сначала попробует найти шрифт локально */
+  src: url("fonts/Doto-Black.ttf");
+  font-weight: bold;
+  font-style: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+  display: flex;
+  overflow: visible;
+  overflow: hidden;
+  background-color: black;
+  font-family: "Archivo";
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 8rem;
+  transition: all 2s ease;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h4 {
+  color: #ffffff;
+}
+h3 {
+  color: #ffffff;
+}
+h6 {
+  color: #ffffff;
+  transition: all 2s ease;
+  font-size: 1.1rem;
+}
+
+a {
+  color: rgb(0, 134, 18);
+  /* transition: all 2s ease; */
+  font-size: 0.9rem;
+  font-family: "Press Start 2P";
+  font-weight: normal;
+  font-style: 400;
+}
+a:hover {
+  color: white;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.ivizible {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.togle {
+  display: none;
+}
+
+.cursor {
+  border-bottom: 1px solid rgb(0, 134, 18);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 80px;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(98, 7, 17, 0.205);
+  border-top: 1px solid grey;
+  backdrop-filter: blur(5px);
+}
+.menu div {
+  margin: 0px 30px 0px 30px;
+}
+.menu-button {
+  background-color: rgb(55, 55, 255);
+  border: 6px solid white;
+  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2),
+    inset 1px 2px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 10px;
+}
+.menu-button:hover {
+  background-color: rgba(146, 30, 30, 0.944);
+}
+.icons {
+  width: 35px !important;
+  height: 35px !important;
+  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+}
+
+.god {
+  position: relative;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  width: 450px;
+  height: auto;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 0;
+  overflow-y: hidden;
+  /* height: 100vh; */
+}
+
+.portfolioPic {
+  z-index: -1;
+}
+
+.god-black-div {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  width: 100%;
+}
+
+.portfolioH1 {
+  /* position:absolute; */
+  color: #ffffff;
+  margin: 10px;
+}
+
+.portfolioDesription {
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-align: left;
+  /* position:absolute; */
+  color: #ffffff;
+  margin: 10px;
+}
+
+#closePortfolio {
+  top: 0;
+  right: 0;
+  display: none;
+  position: absolute;
+  margin: 30px;
+  color: rgb(0, 134, 18);
+  /* transition: all 2s ease; */
+  font-size: 1.3rem;
+  font-family: "Press Start 2P";
+  font-weight: normal;
+  font-style: 400;
+  cursor: pointer;
+}
+#closePortfolio:hover {
+  color: white;
+}
+
+.rightAnimDiv {
+  position: absolute;
+  background-color: red;
+  width: 200px;
+  height: 3000px;
+  rotate: -45deg;
+  z-index: 1;
+  rotate: 315deg;
+  transform: translate(-502px, 0px);
+  z-index: -1;
+
+  animation: rightDivAnimation 2s ease-in-out 2s 1 normal both;
+}
+
+.leftAnimDiv {
+  position: absolute;
+  background-color: #d9d8d8;
+  width: 3000px;
+  height: 300px;
+  /* rotate: 315deg; */
+  rotate: 45deg;
+  z-index: 1;
+  transform: translate(340px, -615px);
+
+  animation: leftDivAnimation 2s ease-in-out 2s 1 normal both;
+}
+
+.block2 {
+  background-image: url(/textures/fon2.jpg);
+  background-size: cover;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 150px 150px 150px;
+  grid-template-columns: 150px 150px 150px;
+  opacity: 0;
+  justify-content: center;
+  align-content: center;
+  gap: 1;
+  transform: rotate(45deg);
+  margin: 130px;
+  position: relative;
+  width: 450px;
+  height: 450px;
+}
+
+/* .centerGrid:hover{
+  color:red ; */
+/* background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  width: 250px;
+  height: 250px;
+  transition: all 1s ease;
+  transform: translate(-50px, -50px);
+  backdrop-filter: blur(5px); */
+/* } */
+
+.lonlyBigGrid {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid white !important;
+  border-top: 2px solid white !important;
+  width: 250px;
+  height: 250px;
+  transition: all 1s ease;
+  transform: translate(-50px, -50px);
+  backdrop-filter: blur(5px);
+}
+
+.lonlyBigGrid span {
+  font-size: 2.4rem;
+  color: red !important;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.grid div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(100, 100, 100, 0.5);
+  border: 1px solid white;
+}
+
+.grid span {
+  color: #ffffff;
+  text-align: center;
+  /* transform: rotate(-45deg); */
+}
+
+.grid div:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  width: 250px;
+  height: 250px;
+  transition: all 1s ease;
+  transform: translate(-50px, -50px);
+  backdrop-filter: blur(5px);
+  border-top: 2px solid white !important;
+}
+
+.laserDiv {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 100vw;
+  height: 200px;
+  opacity: 0;
+  /* /* bottom: 0; */
+  /* animation: laser 2s ease-in-out 2s 1 normal both;  */
+}
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1000pxh;
+  z-index: 99;
+  border: 1px solid white;
+  /* display: none; */
+
+  overflow: hidden;
+}
+
+.portfolioDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 250px;
+  z-index: 99;
+  border: 1px solid white;
+  border-radius: 3px;
+  /* display: none; */
+}
+
+.parallax {
+  display: flex;
+  flex-direction: row;
+  font-size: 2rem;
+  min-height: 100vh;
+  min-width: 300vw;
+  z-index: 1;
+}
+
+.blocks {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 100vw;
+  z-index: 1;
+  /* border: #ffffff 1px solid; */
+}
+
+.flexBlock {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  /* display: none; */
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70vh;
+  width: 90vw;
+  overflow: hidden;
+  z-index: 100;
+  height: 750px;
+}
+
+.contentBlock2 {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70vh;
+  width: 80vw;
+  overflow: hidden;
+  z-index: 100;
+  /* animation: contentBlockAnimation 2s ease-in-out 2s 1 normal both; */
+}
+
+.contentBlock3 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 80vw;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes gridAnimation {
+  0% {
+    opacity: 0;
+    gap: 0px;
+    transform: rotate(0);
+  }
+  100% {
+    gap: 20px;
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes gridTextAnimation {
+  0% {
+    width: 10px;
+    transform: rotate(0);
+  }
+  100% {
+    opacity: 1;
+    /* width: 200px; */
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes leftDivAnimation {
+  0% {
+    /* rotate: 0deg;
+    width: 1000px; */
+    opacity: 0;
+    height: 10px;
+  }
+
+  100% {
+    /* transform: translate(1600px, -40px);
+    rotate: -45deg; 
+    width: 200px;  */
+    opacity: 1;
+    height: 200px;
+  }
+}
+@keyframes rightDivAnimation {
+  0% {
+    /* rotate: 360deg; */
+    width: 10px;
+    opacity: 0;
+  }
+  100% {
+    /* rotate: 315deg; */
+    width: 200px;
+    opacity: 1;
+  }
+}
+
+@keyframes laser {
+  0% {
+    opacity: 0;
+    height: 3px;
+  }
+  50% {
+    opacity: 1;
+    height: 200px;
+  }
+  100% {
+    opacity: 0;
+    height: 3px;
+  }
+}
+
+@keyframes contentBlockAnimation {
+  0% {
+    height: 13vh;
+  }
+
+  100% {
+    height: 70vh;
+  }
+}
+
+.prevPortfolio2 {
+  background-image: url(/textures/0ab3d93f-3075-488e-bed5-83f978278323-shutterstock-2057520620.jpg);
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  /* translate: 100px; */
+}
+
+.portfolioON {
+  position: absolute;
+  width: 80vw;
+  height: 100%;
+  top: 0;
+  margin-top: 30px;
+  overflow: scroll !important;
+}
+
+.portfolio-menu-div {
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:blur(5px);
+
+  width: 100vw;
+  height: 0;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.portfolio-menu-div2 {
+  position: absolute;
+  width: 100vw;
+  height: 0;
+  background-color: grey;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+	
+.portfolio-menu-div-ON{
+	height:100vh;
+}
+.portfolio-menu-div-ON2{
+	height:70vh;
+}
+#bigPic{
+	width:700px;
+	height: 500px;
+}
+.side-bar {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  height: 50px;
+  width: 100vw;
+}
+
+.p-m-content-div {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.portfolio-menu-buttons {
+  display: inline-block;
+  color: green;
+  width: 250px;
+  height: 60px;
+  border: 1px solid green;
+  font-size: 10px;
+  text-align: center;
+  align-content: center;
+  background-color: black;
+  margin: 20px 0 0 20px;
+  mask: radial-gradient(circle 10px at top left, #0000 98%, #000) top left,
+    radial-gradient(circle 10px at top right, #0000 98%, #000) top right,
+    radial-gradient(circle 10px at bottom left, #0000 98%, #000) bottom left,
+    radial-gradient(circle 10px at bottom right, #0000 98%, #000) bottom right;
+  mask-size: 51% 51%;
+  mask-repeat: no-repeat;
+  /*По ссылки разные способы что бы верезать края
+   *
+   * https://css-tricks.com/cut-corners-using-css-mask-and-clip-path-properties/
+*/
+}
+
+.right-menu-p {
+  position: relative;
+}
+
+/* mobile */
+@media screen and (max-width: 1440px) {
+  h1 {
+    font-size: 6rem;
+  }
+  a {
+    font-size: 0.6rem;
+  }
+  p {
+    font-size: 0.6rem;
+  }
+  .grid {
+    grid-template-rows: 120px 120px 120px;
+    grid-template-columns: 120px 120px 120px;
+  }
+}

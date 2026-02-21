@@ -11,7 +11,7 @@ import { textAnimation } from "./module/grid&TextAnimation.js";
 import { popapWindow } from "./module/modelPopap.js";
 import { textTyping } from "./module/textSelfTyping.js";
 import { gridCenterStuff } from "./module/unHoverGrid.js";
-import {formTypeOne} from "./forms/mainForm.js"
+import {formTypeOne, initFormHandler} from "./forms/mainForm.js"
 
 // import waterVertex from "./shaders/plane/vertex.glsl"
 // import waterFragment from "./shaders/plane/fragment.glsl"
@@ -21,14 +21,14 @@ import {formTypeOne} from "./forms/mainForm.js"
 // import eyeBallFragment from "./shaders/eyeBall/fragment.glsl"
  const canvas = document.querySelector(".webgl");
  const blocks = document.querySelectorAll(".blocks");
-// //const buyButton =  document.querySelectorAll("#buyButton"); 
-// // console.log(buyButton[0])
-//
+ const buyButton = document.querySelectorAll("#buyButton");
+// console.log(buyButton[0])
+
 //modules
 leftScroll();
 textAnimation(blocks);
 createGods();
-popapWindow(buyButton, formTypeOne);
+popapWindow(buyButton, formTypeOne, initFormHandler);
 textTyping();
 gridCenterStuff();
 

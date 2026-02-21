@@ -1,36 +1,20 @@
 {
   "name": "tree",
   "version": "1.0.0",
-  "main": "main.js",
+  "type": "module",
   "scripts": {
-    "serv": "npm run ./server/server.js",
-    "start": "vite",
+    "dev": "vite",
+    "server": "node server/server.js",
     "build": "vite build"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "lil-gui": "^0.19.2",
     "nodemailer": "^7.0.13",
-    "three": "^0.161.0",
-    "three-custom-shader-material": "^5.4.0",
     "vite": "^7.3.1"
   },
   "devDependencies": {
-    "vite-plugin-glsl": "^1.3.0"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.34.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/2orTwo/our-site.git"
-  },
-  "bugs": {
-    "url": "https://github.com/2orTwo/our-site/issues"
-  },
-  "homepage": "https://github.com/2orTwo/our-site#readme",
-  "description": ""
+    "vite-plugin-glsl": "^1.3.1"
+  }
 }

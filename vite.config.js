@@ -1,6 +1,6 @@
-import glsl from "./node_modules/vite-plugin-glsl";
 // import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
 import { defineConfig } from "vite";
+import glsl from "vite-plugin-glsl";
 
 // https://vitejs.dev/config/
 export default {    
@@ -10,7 +10,13 @@ export default {
     server:
     {
         host: true, // Open to local network and display URL
-        open: !('SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in process.env) // Open if it's not a CodeSandbox
+        open: !('SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in process.env), // Open if it's not a CodeSandbox
+        proxy: {
+            '/formSend': {
+                target: 'http://localhost:3000',
+                changeOrigin: true
+            }
+        }
     },
     build:
     {

@@ -576,14 +576,86 @@ p {
   flex-direction: row;
   justify-content: space-between;
   overflow: hidden;
+  
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.95) 0%, rgba(13, 13, 13, 0.98) 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 255, 136, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.left-menu-p {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 30px;
+}
+
+.left-menu-p h4 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #00ff88;
+  margin: 0 0 16px 0;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.left-menu-p p {
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.right-menu-p {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 30px;
+}
+
+.right-menu-p #bigPic {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  object-fit: cover;
+}
+
+.right-menu-p .portfolio-menu-buttons {
+  margin: 0 0 20px 0;
+  width: 200px;
+}
+
+#closeMenuP {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #00ff88;
+  font-size: 1.5rem;
+  font-family: "Press Start 2P";
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+#closeMenuP:hover {
+  color: white;
+  transform: scale(1.1);
 }
 
 .portfolio-menu-buttons {
   display: inline-block;
-  color: green;
+  color: #00ff88;
   width: 250px;
   height: 60px;
-  border: 1px solid green;
+  border: 1px solid #00ff88;
   font-size: 10px;
   text-align: center;
   align-content: center;
@@ -599,6 +671,14 @@ p {
    *
    * https://css-tricks.com/cut-corners-using-css-mask-and-clip-path-properties/
 */
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5), inset 0 0 10px rgba(0, 255, 136, 0.1);
+  transition: all 0.3s ease;
+}
+
+.portfolio-menu-buttons:hover {
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.8), inset 0 0 15px rgba(0, 255, 136, 0.2);
 }
 
 .right-menu-p {
@@ -619,5 +699,33 @@ p {
   .grid {
     grid-template-rows: 120px 120px 120px;
     grid-template-columns: 120px 120px 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .p-m-content-div {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .left-menu-p {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .right-menu-p {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
+  .left-menu-p h4 {
+    font-size: 22px;
+  }
+
+  .right-menu-p #bigPic {
+    max-width: 100%;
   }
 }

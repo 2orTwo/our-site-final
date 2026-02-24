@@ -116,15 +116,31 @@ p {
   margin: 0px 30px 0px 30px;
 }
 .menu-button {
-  background-color: rgb(55, 55, 255);
+  background: radial-gradient(circle at center, 
+    #000000 0%, 
+    #000000 85%, 
+    #ffffff 86%, 
+    #ffffa0 87%, 
+    #ffd700 90%, 
+    #ff8c00 95%, 
+    #1a1a4e 100%);
   border: 6px solid white;
-  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2),
-    inset 1px 2px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.4),
+    inset 0 0 20px rgba(0, 0, 0, 0.8);
   border-radius: 15px;
   padding: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
 .menu-button:hover {
-  background-color: rgba(146, 30, 30, 0.944);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 60px rgba(26, 26, 78, 0.5),
+    inset 0 0 25px rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
 }
 .icons {
   width: 35px !important;

@@ -116,17 +116,18 @@ p {
   margin: 0px 30px 0px 30px;
 }
 .menu-button {
-  background: radial-gradient(circle at center, 
-    #000000 0%, 
-    #000000 85%, 
-    #ffffff 86%, 
-    #ffffa0 87%, 
-    #ffd700 90%, 
-    #ff8c00 95%, 
-    #1a1a4e 100%);
-  border: 6px solid white;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
-    0 0 30px rgba(255, 215, 0, 0.4),
+  background: radial-gradient(circle at center,
+    #000000 0%,
+    #000000 85%,
+    #ffd700 85%, #ffd700 85.7%,
+    #ffffff 85.7%, #ffffff 86.4%,
+    #ffffa0 86.4%, #ffffa0 87.1%,
+    #ffd700 87.1%, #ffd700 87.8%,
+    #ff8c00 87.8%, #ff8c00 88.5%,
+    #1a1a4e 89%, #1a1a4e 100%);
+  border: 6px solid grey;
+  box-shadow: 0 0 15px rgba(128, 128, 128, 0.6),
+    0 0 30px rgba(255, 0, 0, 0.2),
     inset 0 0 20px rgba(0, 0, 0, 0.8);
   border-radius: 15px;
   padding: 10px;
@@ -136,9 +137,9 @@ p {
 }
 
 .menu-button:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
-    0 0 40px rgba(255, 215, 0, 0.6),
-    0 0 60px rgba(26, 26, 78, 0.5),
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.9),
+    0 0 40px rgba(255, 0, 0, 0.6),
+    0 0 60px rgba(255, 0, 0, 0.5),
     inset 0 0 25px rgba(0, 0, 0, 0.9);
   transform: scale(1.05);
 }

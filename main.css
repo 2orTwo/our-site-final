@@ -12,6 +12,8 @@
   src: url("/fonts/Archivo-Italic-VariableFont.ttf");
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
+
 /* @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); */
 @font-face {
   font-family: "Press Start 2P";
@@ -459,13 +461,19 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(100, 100, 100, 0.5);
-  border: 1px solid white;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.02) 20%, rgba(255, 255, 255, 0.02) 80%, rgba(255, 255, 255, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.5s ease;
 }
 
-.grid span {
+.grid div:not(.lonlyBigGrid) span {
   color: #ffffff;
   text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
   /* transform: rotate(-45deg); */
 }
 
@@ -477,7 +485,8 @@ p {
   height: 250px;
   transition: all 1s ease;
   transform: translate(-50px, -50px);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-top: 2px solid white !important;
 }
 

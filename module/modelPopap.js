@@ -5,7 +5,9 @@ export function popapWindow(eventElements, HTMLforFORM, initFormCallback){
 // Перебираем все элементы (если это коллекция)
 if (eventElements && eventElements.length) {
   eventElements.forEach(el => {
+	  
     el.addEventListener("click", (evnt)=>{
+	    evnt.preventDefault();
       openModal(evnt, HTMLforFORM, initFormCallback)
     })
   })

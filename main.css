@@ -338,7 +338,7 @@ p {
 
 .leftAnimDiv {
   position: absolute;
-  background-color: #d9d8d8;
+  background-color: rgba(140,140,140,0.8);
   width: 3000px;
   height: 300px;
   rotate: 240deg;
@@ -363,7 +363,7 @@ p {
 
 .leftAnimDiv2 {
   position: absolute;
-  background-color: #d9d8d8;
+  background-color: rgba(140,140,140,0.8);
   width: 3000px;
   height: 300px;
   rotate: 240deg;
@@ -749,7 +749,6 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border-top: 2px solid rgba(0, 255, 136, 0.3);
   box-shadow: 0 -10px 40px rgba(0, 255, 136, 0.1);
 }

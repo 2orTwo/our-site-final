@@ -30,7 +30,7 @@ align-items: center;
 background-color: rgba(0,0,0,0.7);
 width: 100%;
 height: 100%;
-position: absolute;
+position: fixed;
 z-index: 1;
 backdrop-filter: blur(2px);
 cursor: pointer;

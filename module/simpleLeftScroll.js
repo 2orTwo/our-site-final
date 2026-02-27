@@ -5,6 +5,7 @@ export function leftScroll() {
   const scrollBlocks = document.querySelectorAll(".scrollBlocks");
   const blocks = document.querySelectorAll(".blocks");
   const portfilio = document.querySelector(".portfolio");
+  const contentB = document.querySelector(".contentBlock3");
   const portfolioBlock = document.querySelector(".prevPortfolio2");
   const contentBlock = document.querySelector(".contentBlock");
   const closePortfolio = document.querySelector("#closePortfolio");
@@ -74,7 +75,9 @@ switch (scrollDetals) {
             if (scale <= 110) {
               // portfilio.style.transform = `translateY(-400px)`;
               portfilio.style.transform = `scale(${scale}%)`;
-              portfilio.style.border = "none";
+        portfilio.style.padding = "30px";
+        portfilio.style.paddingBottom = "110px";
+              contentB.style.border = "none";
             }else{
               portfilio.classList.add('portfolioON')
               closePortfolio.style.display = 'block'
@@ -100,8 +103,11 @@ switch (scrollDetals) {
                 mouveUp = 0
                 scale = 100
         portfilio.style.transform = `scale(${scale}%)`
-        portfolioBlock.style.transform = `translateY(0)`;
-        portfilio.style.border = "1px solid white";
+        portfilio.style.paddingBottom = "0px";
+        portfilio.style.padding = "0px";
+	portfolioBlock.style.transform = `translateY(0)`;
+	contentB.style.padding = "0px";
+	contentB.style.paddingBottom = "0px";
         scrollDetals = "normal";
         console.log(scrollDetals)
       })
